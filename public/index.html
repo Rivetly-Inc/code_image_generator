@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .button-container {
+            justify-content: center;
+        }
+
+        form {
+            padding: 50px 0;
+            border-bottom: solid 1px #ccc;
+        }
+
+        .result-container {
+            display: none;
+        }
+
+        .result-container div {
+            display: flex;
+            justify-content: space-around;
+            padding-top: 50px;
+        }
+    </style>
+
+    <title>CodeGen Services Page</title>
+</head>
+
+<body>
+    <div class="main container">
+        <form>
+            <div class="form-group row">
+                <label for="type" class="col-sm-2 col-form-label">Type</label>
+                <div class="col-sm-10">
+                    <select id="type" class="form-control">
+                        <option value="auspost">AusPost 4 State Customer Code</option>
+                        <option value="azteccode">Aztec Code</option>
+                        <option value="azteccodecompact">Compact Aztec Code</option>
+                        <option value="aztecrune">Aztec Runes</option>
+                        <option value="bc412">BC412</option>
+                        <option value="channelcode">Channel Code</option>
+                        <option value="codablockf">Codablock F</option>
+                        <option value="code11">Code 11</option>
+                        <option value="code128" selected>Code 128</option>
+                        <option value="code16k">Code 16K</option>
+                        <option value="code2of5">Code 25</option>
+                        <option value="code32">Italian Pharmacode</option>
+                        <option value="code39">Code 39</option>
+                        <option value="code39ext">Code 39 Extended</option>
+                        <option value="code49">Code 49</option>
+                        <option value="code93">Code 93</option>
+                        <option value="code93ext">Code 93 Extended</option>
+                        <option value="codeone">Code One</option>
+                        <option value="coop2of5">COOP 2 of 5</option>
+                        <option value="daft">Custom 4 state symbology</option>
+                        <option value="databarexpanded">GS1 DataBar Expanded</option>
+                        <option value="databarexpandedcomposite">GS1 DataBar Expanded Composite</option>
+                        <option value="databarexpandedstacked">GS1 DataBar Expanded Stacked</option>
+                        <option value="databarexpandedstackedcomposite">GS1 DataBar Expanded Stacked Composite</option>
+                        <option value="databarlimited">GS1 DataBar Limited</option>
+                        <option value="databarlimitedcomposite">GS1 DataBar Limited Composite</option>
+                        <option value="databaromni">GS1 DataBar Omnidirectional</option>
+                        <option value="databaromnicomposite">GS1 DataBar Omnidirectional Composite</option>
+                        <option value="databarstacked">GS1 DataBar Stacked</option>
+                        <option value="databarstackedcomposite">GS1 DataBar Stacked Composite</option>
+                        <option value="databarstackedomni">GS1 DataBar Stacked Omnidirectional</option>
+                        <option value="databarstackedomnicomposite">GS1 DataBar Stacked Omnidirectional Composite
+                        </option>
+                        <option value="databartruncated">GS1 DataBar Truncated</option>
+                        <option value="databartruncatedcomposite">GS1 DataBar Truncated Composite</option>
+                        <option value="datalogic2of5">Datalogic 2 of 5</option>
+                        <option value="datamatrix">Data Matrix</option>
+                        <option value="datamatrixrectangular">Data Matrix Rectangular</option>
+                        <option value="datamatrixrectangularextension">Data Matrix Rectangular Extension</option>
+                        <option value="dotcode">DotCode</option>
+                        <option value="ean13">EAN-13</option>
+                        <option value="ean13composite">EAN-13 Composite</option>
+                        <option value="ean14">GS1-14</option>
+                        <option value="ean2">EAN-2 (2 digit addon)</option>
+                        <option value="ean5">EAN-5 (5 digit addon)</option>
+                        <option value="ean8">EAN-8</option>
+                        <option value="ean8composite">EAN-8 Composite</option>
+                        <option value="flattermarken">Flattermarken</option>
+                        <option value="gs-128">GS1-128</option>
+                        <option value="gs-128composite">GS1-128 Composite</option>
+                        <option value="gs-cc">GS1 Composite 2D Component</option>
+                        <option value="gs1datamatrix">GS1 Data Matrix</option>
+                        <option value="gs1datamatrixrectangular">GS1 Data Matrix Rectangular</option>
+                        <option value="gs1northamericancoupon">GS1 North American Coupon</option>
+                        <option value="gs1qrcode">GS1 QR Code</option>
+                        <option value="hanxin">Han Xin Code</option>
+                        <option value="hibcazteccode">HIBC Aztec Code</option>
+                        <option value="hibccodablockf">HIBC Codablock F</option>
+                        <option value="hibccode128">HIBC Code 128</option>
+                        <option value="hibccode39">HIBC Code 39</option>
+                        <option value="hibcdatamatrix">HIBC Data Matrix</option>
+                        <option value="hibcdatamatrixrectangular">HIBC Data Matrix Rectangular</option>
+                        <option value="hibcmicropdf417">HIBC MicroPDF417</option>
+                        <option value="hibcpdf417">HIBC PDF417</option>
+                        <option value="hibcqrcode">HIBC QR Code</option>
+                        <option value="iata2of5">IATA 2 of 5</option>
+                        <option value="identcode">Deutsche Post Identcode</option>
+                        <option value="industrial2of5">Industrial 2 of 5</option>
+                        <option value="interleaved2of5">Interleaved 2 of 5 (ITF)</option>
+                        <option value="isbn">ISBN</option>
+                        <option value="ismn">ISMN</option>
+                        <option value="issn">ISSN</option>
+                        <option value="itf14">ITF-14</option>
+                        <option value="japanpost">Japan Post 4 State Customer Code</option>
+                        <option value="kix">Royal Dutch TPG Post KIX</option>
+                        <option value="leitcode">Deutsche Post Leitcode</option>
+                        <option value="mailmark">Royal Mail Mailmark</option>
+                        <option value="matrix2of5">Matrix 2 of 5</option>
+                        <option value="maxicode">MaxiCode</option>
+                        <option value="micropdf417">MicroPDF417</option>
+                        <option value="microqrcode">Micro QR Code</option>
+                        <option value="msi">MSI Modified Plessey</option>
+                        <option value="onecode">USPS Intelligent Mail</option>
+                        <option value="pdf417">PDF417</option>
+                        <option value="pdf417compact">Compact PDF417</option>
+                        <option value="pharmacode">Pharmaceutical Binary Code</option>
+                        <option value="pharmacode2">Two-track Pharmacode</option>
+                        <option value="planet">USPS PLANET</option>
+                        <option value="plessey">Plessey UK</option>
+                        <option value="posicode">PosiCode</option>
+                        <option value="postnet">USPS POSTNET</option>
+                        <option value="pzn">Pharmazentralnummer (PZN)</option>
+                        <option value="qrcode">QR Code</option>
+                        <option value="rationalizedCodabar">Codabar</option>
+                        <option value="raw">Custom 1D symbology</option>
+                        <option value="royalmail">Royal Mail 4 State Customer Code</option>
+                        <option value="sscc18">SSCC-18</option>
+                        <option value="symbol">Miscellaneous symbols</option>
+                        <option value="telepen">Telepen</option>
+                        <option value="telepennumeric">Telepen Numeric</option>
+                        <option value="ultracode">Ultracode</option>
+                        <option value="upca">UPC-A</option>
+                        <option value="upcacomposite">UPC-A Composite</option>
+                        <option value="upce">UPC-E</option>
+                        <option value="upcecomposite">UPC-E Composite</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="data" class="col-sm-2 col-form-label">Data</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="data" placeholder="Code Text Data">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="textcolor" class="col-sm-2 col-form-label">Text Color</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="textcolor" placeholder="Text Color">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="barcolor" class="col-sm-2 col-form-label">Bar Color</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="barcolor" placeholder="Bar Color">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="backgroundcolor" class="col-sm-2 col-form-label">Background Color</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="backgroundcolor" placeholder="Background Color">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="scale" class="col-sm-2 col-form-label">Scale</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="scale" value="3">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="includeText" class="col-sm-2 col-form-label">Include Text</label>
+                <div class="col-sm-10">
+                    <select id="includeText" class="form-control">
+                        <option value="true" selected>True</option>
+                        <option value="false">False</option>
+                    </select>
+                    <small class="form-text text-muted">Useful for barcode.</small>
+                </div>
+            </div>
+            <div class="form-group row button-container">
+                <a href="javascript:;" class="btn btn-primary" id="gen-btn">Generate Code Image</a>
+            </div>
+        </form>
+        <div class="result-container">
+            <div class="btn-container">
+                <a href="javascript:;" class="btn btn-primary" id="png-btn">Save as PNG</a>
+                <a href="javascript:;" class="btn btn-primary" id="jpg-btn">Save as JPG</a>
+                <a href="javascript:;" class="btn btn-primary" id="link-btn" target="_blank">Go to Link</a>
+                <a id="download-link" style="display: none;"></a>
+            </div>
+            <div class="img-container">
+                <canvas id="code_canvas">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+            var options = $('select#type option')
+            var arr = options.map(function (_, o) { return { t: $(o).text(), v: o.value }; }).get()
+            arr.sort(function (o1, o2) {
+                var t1 = o1.t.toLowerCase(), t2 = o2.t.toLowerCase()
+                return t1 > t2 ? 1 : t1 < t2 ? -1 : 0
+            })
+            options.each(function (i, o) {
+                o.value = arr[i].v
+                $(o).text(arr[i].t)
+            })
+        })
+        
+        $('#gen-btn').click(function () {
+            var type = $('#type').val()
+            var data = $('#data').val()
+            var textcolor = $('#textcolor').val()
+            var scale = $('#scale').val()
+            var includeText = $('#includeText').val()
+            var barcolor = $('#barcolor').val()
+            var backgroundcolor = $('#backgroundcolor').val()
+
+            if (!data) {
+                alert('Data field is mandatory.')
+                return
+            }
+
+            var href = `http://${location.host}/codegen/v1/generate?type=${type}&data=${data}&textcolor=${textcolor}&scale=${scale}&includeText=${includeText}&barcolor=${barcolor}&backgroundcolor=${backgroundcolor}`
+            // location.href = href
+            let img = new Image()
+            img.onload = function () {
+                var canvas = document.getElementById('code_canvas')
+                canvas.height = img.height
+                canvas.width = img.width
+                var context = canvas.getContext('2d')
+                context.drawImage(img, 0, 0)
+                $('.result-container').show()
+            }
+            img.src = href
+            $('#link-btn').attr('href', href)
+        })
+
+        function resetResult() {
+            $('.result-container').hide()
+        }
+
+        $('#type').change(function () { resetResult() })
+        $('#data').change(function () { resetResult() })
+        $('#textcolor').change(function () { resetResult() })
+        $('#barcolor').change(function () { resetResult() })
+        $('#backgroundcolor').change(function () { resetResult() })
+        $('#scale').change(function () { resetResult() })
+        $('#includeText').change(function () { resetResult() })
+
+        $('#png-btn').click(function () {
+            var canvas = document.getElementById('code_canvas')
+            var link = document.getElementById('download-link')
+            link.setAttribute('download', 'code.png')
+            link.setAttribute('href', canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"))
+            link.click()
+        })
+
+        $('#jpg-btn').click(function () {
+            var canvas = document.getElementById('code_canvas')
+            var link = document.getElementById('download-link')
+            link.setAttribute('download', 'code.jpeg')
+            link.setAttribute('href', canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream"))
+            link.click()
+        })
+    </script>
+</body>
+
+</html>
